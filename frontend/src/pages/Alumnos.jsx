@@ -1,30 +1,33 @@
-// src/pages/Alumnos.jsx
-import React from "react";
+import React, { useEffect, useState } from "react";
 
 const Alumnos = () => {
-  const alumnos = [
-    {
-      id: 1,
-      nombre: "Juan Pérez",
-      correo: "juan@example.com",
-      telefono: "612345678",
-      curso: "Java Básico"
-    },
-    {
-      id: 2,
-      nombre: "Laura Gómez",
-      correo: "laura@example.com",
-      telefono: "622345678",
-      curso: "Spring Boot Avanzado"
-    },
-    {
-      id: 3,
-      nombre: "Pedro López",
-      correo: "pedro@example.com",
-      telefono: "632345678",
-      curso: "React desde Cero"
-    }
-  ];
+  const [alumnos, setAlumnos] = useState([]);
+  const [cursos, setCursos] = useState([]);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/alumnos")
+      .then(response => response.json())
+      .then(data => {
+        console.log("📦 Alumnos:", data);
+        setAlumnos(data);
+      })
+      .catch(error => console.error("❌ Error al cargar alumnos", error));
+  }, []);
+
+  useEffect(() => {
+    fetch("http://localhost:8080/api/cursos")
+      .then(response => response.json())
+      .then(data => {
+        console.log("📘 Cursos:", data);
+        setCursos(data);
+      })
+      .catch(error => console.error("❌ Error al cargar cursos", error));
+  }, []);
+
+  const obtenerNombreCurso = (id) => {
+    const curso = cursos.find(c => c.id === id);
+    return curso ? curso.nombre : "Sin curso";
+  };
 
   return (
     <div className="p-6">
@@ -45,7 +48,7 @@ const Alumnos = () => {
               <td className="border px-4 py-2">{alumno.nombre}</td>
               <td className="border px-4 py-2">{alumno.correo}</td>
               <td className="border px-4 py-2">{alumno.telefono}</td>
-              <td className="border px-4 py-2">{alumno.curso}</td>
+              <td className="border px-4 py-2">{obtenerNombreCurso(alumno.cursoId)}</td>
               <td className="border px-4 py-2">
                 <button className="bg-blue-500 text-white px-2 py-1 rounded mr-2 hover:bg-blue-600">
                   Editar
