@@ -30,5 +30,8 @@ public class AlumnoDTO {
 
     @NotNull(message = "El ID de curso es obligatorio")
     private Long cursoId;
+
+    private String cursoNombre;
+
     
 }

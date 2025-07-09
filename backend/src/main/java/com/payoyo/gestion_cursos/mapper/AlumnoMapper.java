@@ -14,6 +14,7 @@ public class AlumnoMapper {
         alumnoDTO.setCorreo(alumno.getCorreo());
         alumnoDTO.setTelefono(alumno.getTelefono());
         alumnoDTO.setCursoId(alumno.getCurso().getId());
+        alumnoDTO.setCursoNombre(alumno.getCurso().getNombre());
 
         return alumnoDTO;
     }
