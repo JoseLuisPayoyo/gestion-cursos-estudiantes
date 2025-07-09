@@ -1,23 +1,96 @@
-# 🎓 Gestión de Cursos y Estudiantes – API REST con Spring Boot
+# 📚 Gestión de Cursos y Alumnos – Full Stack App
 
-Este proyecto es una API REST básica construida con **Java 17** y **Spring Boot**, que permite gestionar entidades académicas como **Cursos** y **Estudiantes**, vinculados por una relación uno a muchos (un curso puede tener muchos estudiantes).
+Aplicación web completa para la gestión de cursos y alumnos, desarrollada con **Java Spring Boot + React + Tailwind CSS**. Permite crear, visualizar y eliminar registros de manera fluida desde una interfaz moderna y profesional.
 
-## 🔧 Tecnologías utilizadas
+---
 
-- Java 17
-- Spring Boot 3.x
-- Spring Data JPA
-- PostgreSQL (opcional, por defecto H2)
-- Lombok
-- Maven
+## 🖼️ Capturas de pantalla
 
-## 📌 Funcionalidades
+### 🧍‍♂️ Formulario de Alumnos
+![Formulario Alumnos](./assets/crear_usuarios.png)
 
-- CRUD de Cursos
-- CRUD de Estudiantes
-- Relación entre curso y estudiantes (`@OneToMany`)
-- Validaciones básicas y DTOs
-- Testing con Postman
-- Preparado para integración con frontend en React
+### 📋 Tabla de Alumnos
+![Tabla Alumnos](./assets/lista_alumnos.png)
 
+### 📚 Tabla de Cursos
+![Tabla Cursos](./assets/crear_curso.png)
+
+### ⚠️ Ventana de Confirmación al Eliminar
+![Eliminar Alumno](./assets/accion_eliminar.png)
+
+---
+
+## 🛠️ Tecnologías Utilizadas
+
+### Backend:
+- ☕ Java 17
+- 🌱 Spring Boot 3
+- 🐘 PostgreSQL
+- 🔄 CORS + Controladores REST
+- 🧪 JPA (Hibernate)
+
+### Frontend:
+- ⚛️ React
+- 💨 Tailwind CSS
+- 🍬 SweetAlert2
+- ⚙️ Vite
+
+---
+
+## ✨ Características
+
+- Crear, listar y eliminar cursos y alumnos
+- Edición de alumnos en tiempo real
+- Relación entre alumnos y cursos
+- Alertas modernas con SweetAlert2
+- Diseño responsive y limpio con Tailwind
+- Backend modular y desacoplado
+- Código organizado por componentes
+
+---
+
+## 🚀 Instalación y ejecución
+
+### 1. Clonar repositorio
+
+```bash
+git clone https://github.com/tu-usuario/gestion-cursos-alumnos.git
+cd gestion-cursos-alumnos
+cd backend
+./mvnw spring-boot:run
+
+cd frontend
+npm install
+npm run dev
+```
+Asegúrate de tener PostgreSQL corriendo y la base de datos configurada en application.properties.
+
+
+---
+
+
+## 🔗 API REST – Endpoints
+
+### 📍 Cursos 
+GET /api/cursos → Listar cursos
+
+POST /api/cursos → Crear curso
+
+DELETE /api/cursos/{id} → Eliminar curso
+
+### 👤 Alumnos
+GET /api/alumnos → Listar alumnos
+
+POST /api/alumnos → Crear alumno
+
+DELETE /api/alumnos/{id} → Eliminar alumno
+
+---
+
+## 🧑‍💻 Autor
+### Jose Luis “Payoyo” Rodríguez
+
+Desarrollo backend, eficiencia, solidez en sistemas y crecimiento profesional continuo. Formándome para trabajar en empresas tecnológicas de alto nivel.
+
+<p align="center"> <img src="./assets/logo_definitivo-Photoroom.png" alt="Logo Payoyo" width="500" /> </p>
 
