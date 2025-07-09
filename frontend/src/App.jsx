@@ -1,11 +1,11 @@
-import CursosPage from "./pages/CursosPage";
+import Alumnos from './pages/Alumnos'
 
 function App() {
   return (
-    <div className="min-h-screen bg-gray-100">
-      <CursosPage />
+    <div className="container mx-auto">
+      <Alumnos />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
