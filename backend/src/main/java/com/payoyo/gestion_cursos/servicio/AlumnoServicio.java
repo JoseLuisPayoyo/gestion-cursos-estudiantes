@@ -24,7 +24,7 @@ public class AlumnoServicio implements IAlumnoServicio{
     private CursoRepositorio cursoRepositorio;
 
     @Override
-    public List<AlumnoDTO> listarAlumno() {
+    public List<AlumnoDTO> listarAlumnos() {
         //pasamos a lista y devolvemos
         return alumnoRepositorio.findAll()
             .stream()
@@ -66,7 +66,7 @@ public class AlumnoServicio implements IAlumnoServicio{
 
         //buscamos su curso
         Curso curso = cursoRepositorio.findById(alumnoDTO.getCursoId())
-            .orElseThrow(() -> new RecursoNoEncontradoException("Alumno no encontrado con ID: " + id));
+            .orElseThrow(() -> new RecursoNoEncontradoException("Curso no encontrado con ID: " + id));
             
         //actualizamos sus datos
         alumno.setNombre(alumnoDTO.getNombre());

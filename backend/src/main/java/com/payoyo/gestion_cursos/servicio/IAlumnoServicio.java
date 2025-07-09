@@ -6,7 +6,7 @@ import com.payoyo.gestion_cursos.dto.AlumnoDTO;
 
 public interface IAlumnoServicio {
 
-    List<AlumnoDTO> listarAlumno();
+    List<AlumnoDTO> listarAlumnos();
 
     AlumnoDTO crearAlumno(AlumnoDTO alumnoDTO);
 
