@@ -1,53 +1,64 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import Swal from "sweetalert2";
 
-const CursoForm = ({ fetchCursos, modo = "crear", cursoEditar = null, onCancel }) => {
-  const [nombre, setNombre] = useState(cursoEditar?.nombre || "");
+const CursoForm = ({ cursoEditando, onSuccess, onCancel }) => {
+  const [nombre, setNombre] = useState("");
+
+  useEffect(() => {
+    if (cursoEditando) {
+      setNombre(cursoEditando.nombre);
+    } else {
+      setNombre("");
+    }
+  }, [cursoEditando]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    if (nombre.trim() === "") return Swal.fire("Error", "El nombre no puede estar vacío", "error");
-
     try {
-      if (modo === "crear") {
-        await axios.post("http://localhost:8080/api/cursos", { nombre });
-        Swal.fire("Curso creado", "", "success");
+      if (cursoEditando) {
+        await axios.put(`http://localhost:8080/api/cursos/${cursoEditando.id}`, { nombre });
       } else {
-        await axios.put(`http://localhost:8080/api/cursos/${cursoEditar.id}`, { nombre });
-        Swal.fire("Curso actualizado", "", "success");
+        await axios.post("http://localhost:8080/api/cursos", { nombre });
       }
-
-      fetchCursos();
+      onSuccess(); // recarga la tabla
       setNombre("");
-      if (onCancel) onCancel(); // Para cerrar el formulario de edición
     } catch (error) {
-      console.error("Error:", error);
-      Swal.fire("Error", "No se pudo guardar el curso", "error");
+      console.error("Error al guardar el curso:", error);
     }
   };
 
   return (
-    <form onSubmit={handleSubmit} className="mb-4">
-      <input
-        type="text"
-        value={nombre}
-        onChange={(e) => setNombre(e.target.value)}
-        placeholder="Nombre del curso"
-        className="border p-2 mr-2"
-      />
-      <button type="submit" className="bg-green-500 text-white px-3 py-1 rounded hover:bg-green-600">
-        {modo === "crear" ? "Crear curso" : "Actualizar curso"}
-      </button>
-      {modo === "editar" && (
+    <form onSubmit={handleSubmit} className="mb-6">
+      <h2 className="text-xl font-semibold mb-2">
+        {cursoEditando ? "Editar Curso" : "Nuevo Curso"}
+      </h2>
+      <div className="mb-2">
+        <input
+          type="text"
+          value={nombre}
+          onChange={(e) => setNombre(e.target.value)}
+          placeholder="Nombre del curso"
+          className="border px-3 py-2 rounded w-full"
+          required
+        />
+      </div>
+      <div className="flex gap-2">
         <button
-          type="button"
-          onClick={onCancel}
-          className="ml-2 bg-gray-400 text-white px-3 py-1 rounded hover:bg-gray-500"
+          type="submit"
+          className="bg-green-600 text-white px-4 py-2 rounded hover:bg-green-700"
         >
-          Cancelar
+          Guardar
         </button>
-      )}
+        {cursoEditando && (
+          <button
+            type="button"
+            onClick={onCancel}
+            className="bg-gray-400 text-white px-4 py-2 rounded hover:bg-gray-500"
+          >
+            Cancelar
+          </button>
+        )}
+      </div>
     </form>
   );
 };
