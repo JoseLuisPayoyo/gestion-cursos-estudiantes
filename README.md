@@ -1,2 +1,23 @@
-# gestion-cursos-estudiantes
-Gestor académico simple para cursos y estudiantes, desarrollado con Java 17 y Spring Boot. Permite realizar operaciones CRUD sobre cursos y estudiantes. Este proyecto está diseñado con buenas prácticas de arquitectura, uso de DTOs, capas separadas, y preparado para conectar con un frontend hecho en React + Tailwind CSS.
+# 🎓 Gestión de Cursos y Estudiantes – API REST con Spring Boot
+
+Este proyecto es una API REST básica construida con **Java 17** y **Spring Boot**, que permite gestionar entidades académicas como **Cursos** y **Estudiantes**, vinculados por una relación uno a muchos (un curso puede tener muchos estudiantes).
+
+## 🔧 Tecnologías utilizadas
+
+- Java 17
+- Spring Boot 3.x
+- Spring Data JPA
+- PostgreSQL (opcional, por defecto H2)
+- Lombok
+- Maven
+
+## 📌 Funcionalidades
+
+- CRUD de Cursos
+- CRUD de Estudiantes
+- Relación entre curso y estudiantes (`@OneToMany`)
+- Validaciones básicas y DTOs
+- Testing con Postman
+- Preparado para integración con frontend en React
+
+
