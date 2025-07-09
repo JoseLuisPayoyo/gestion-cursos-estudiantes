@@ -1,7 +1,7 @@
 package com.payoyo.gestion_cursos.mapper;
 
 import com.payoyo.gestion_cursos.dto.CursoDTO;
-import com.payoyo.gestion_cursos.model.Curso;
+import com.payoyo.gestion_cursos.modelo.Curso;
 
 public class CursoMapper {
 

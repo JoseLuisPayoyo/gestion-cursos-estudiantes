@@ -1,4 +1,4 @@
-package com.payoyo.gestion_cursos.model;
+package com.payoyo.gestion_cursos.modelo;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
