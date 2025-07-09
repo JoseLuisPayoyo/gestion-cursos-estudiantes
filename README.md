@@ -71,7 +71,7 @@ Asegúrate de tener PostgreSQL corriendo y la base de datos configurada en appli
 
 ## 🔗 API REST – Endpoints
 
-###📍 Cursos
+### 📍 Cursos 
 GET /api/cursos → Listar cursos
 
 POST /api/cursos → Crear curso
@@ -92,5 +92,5 @@ DELETE /api/alumnos/{id} → Eliminar alumno
 
 Desarrollo backend, eficiencia, solidez en sistemas y crecimiento profesional continuo. Formándome para trabajar en empresas tecnológicas de alto nivel.
 
-<p align="center"> <img src="./assets/logo_definitivo.png" alt="Logo Payoyo" width="300" /> </p>
+<p align="center"> <img src="./assets/logo_definitivo-Photoroom.png" alt="Logo Payoyo" width="500" /> </p>
 
